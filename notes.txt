@@ -1,0 +1,1 @@
+Three things are needed for three.js: Renderer, Camera, and a Scene Object. 
