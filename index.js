@@ -15,6 +15,8 @@ camera.position.z = 2;
 const scene = new THREE.Scene();
 
 const controls = new OrbitControls(camera, renderer.domElement);//declaring, initializing and passing args from import OrbitControls allows for manually moving 3d object
+controls.enableDamping = true;
+controls.dampingFactor = 0.03;
 
 const geo = new THREE.IcosahedronGeometry(1.0, 2);
 const mat = new THREE.MeshStandardMaterial({
@@ -40,6 +42,7 @@ function animate(t = 0){
 requestAnimationFrame(animate);
 //mesh.rotation.y = t * 0.0001; allows constant rotation animation
 renderer.render(scene, camera);
+controls.update();  //calling update combined with controls settings above allow for after effects when manually pushing/spinning 3d object.
 }
 
 animate();
